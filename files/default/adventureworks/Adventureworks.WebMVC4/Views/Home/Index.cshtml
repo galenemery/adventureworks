@@ -1,0 +1,85 @@
+﻿@using Adventureworks.Domain5;
+@model IEnumerable<Product>
+@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+           @* <ol class="round">
+                <li class="one">
+                     @Html.ActionLink("Products Home", "Index", "Products")
+                </li>
+                <li class="two">
+                    @Html.ActionLink("Vendor Management", "Index", "Vendor")
+                </li>
+                <li class="three">
+                    @Html.ActionLink("Vendor Proposal Home", "Index", "Purchase")
+                </li>
+                <li class="four">
+                    @Html.ActionLink("Shopping Cart", "Index", "ShoppingCart")
+                </li>
+            </ol> *@
+        
+   
+
+    <div class="home-page-product-grid">
+    <div class="boxtitle">
+        Featured Products
+    </div>
+    <div class="clear">
+    </div>
+    <ul class="product-list">
+        @{
+            #if  Full
+                foreach (var product in Model)
+                {
+                <li>
+                    <div class="product-item">
+                        <div class="picture">
+                            <a title="Show details for $25 Virtual Gift Card" href="Product/Details/751">
+                                <img style="border-width: 0px;width:156px;height:97px" alt=""
+                                    src="@VirtualPathUtility.ToAbsolute(product.ProductProductPhotoes.FirstOrDefault().ProductPhoto.PhotoPath)"></a>
+                        </div>
+                        <h2 class="product-title">
+                            <a href="#">@product.Name</a>
+                        </h2>
+                    </div>
+                </li> 
+                }
+            #endif
+        }
+    </ul>
+</div>
+</div>
+ </section>
+}
+@*<h3>We suggest the following:</h3>
+<ol class="round">
+    <li class="one">
+        <h5>Getting Started</h5>
+        ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+        enables a clean separation of concerns and that gives you full control over markup
+        for enjoyable, agile development. ASP.NET MVC includes many features that enable
+        fast, TDD-friendly development for creating sophisticated applications that use
+        the latest web standards.
+        <a href="http://go.microsoft.com/fwlink/?LinkId=245151">Learn more…</a>
+    </li>
+
+    <li class="two">
+        <h5>Add NuGet packages and jump-start your coding</h5>
+        NuGet makes it easy to install and update free libraries and tools.
+        <a href="http://go.microsoft.com/fwlink/?LinkId=245153">Learn more…</a>
+    </li>
+
+    <li class="three">
+        <h5>Find Web Hosting</h5>
+        You can easily find a web hosting company that offers the right mix of features
+        and price for your applications.
+        <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>
+    </li>
+</ol>*@
